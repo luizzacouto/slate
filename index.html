@@ -224,13 +224,22 @@
             <a href="#ola-desenvolvedor" class="toc-h1 toc-link" data-title="ola-desenvolvedor">Olá, desenvolvedor.</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#o-que-e-possivel-fazer-com-a-api-edools" class="toc-h2 toc-link" data-title="o-que-e-possivel-fazer-com-a-api-edools">O que é possível fazer com a API Edools</a>
+                    <a href="#o-que-da-para-fazer-com-a-api" class="toc-h2 toc-link" data-title="o-que-da-para-fazer-com-a-api">O que dá para fazer com a API?</a>
+                  </li>
+                  <li>
+                    <a href="#representacao-dos-dados" class="toc-h2 toc-link" data-title="representacao-dos-dados">Representação dos dados</a>
+                  </li>
+                  <li>
+                    <a href="#paginacao" class="toc-h2 toc-link" data-title="paginacao">Paginação</a>
                   </li>
                   <li>
                     <a href="#endpoint" class="toc-h2 toc-link" data-title="endpoint">Endpoint</a>
                   </li>
                   <li>
-                    <a href="#autenticacao" class="toc-h2 toc-link" data-title="autenticacao">Autenticação</a>
+                    <a href="#versionamento" class="toc-h2 toc-link" data-title="versionamento">Versionamento</a>
+                  </li>
+                  <li>
+                    <a href="#autorizacao" class="toc-h2 toc-link" data-title="autorizacao">Autorização</a>
                   </li>
               </ul>
           </li>
@@ -267,45 +276,90 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id='ola-desenvolvedor'>Olá, desenvolvedor.</h1><h2 id='o-que-e-possivel-fazer-com-a-api-edools'>O que é possível fazer com a API Edools</h2>
+        <h1 id='ola-desenvolvedor'>Olá, desenvolvedor.</h1><h2 id='o-que-da-para-fazer-com-a-api'>O que dá para fazer com a API?</h2>
 <p>Com a nossa API você será capaz de integrar qualquer sistema externo ao Edools, realizar migrações de dados de plataformas antigas de maneira simples e direta, e construir aplicativos para estender uma funcionalidade existente ou até mesmo criar novas funcionalidades com sua lógica própria.</p>
 
 <p>Através da API você tem toda a flexibilidade necessária para adaptar o Edools às suas regras de negócio, tendo uma plataforma de ensino online que se encaixe perfeitamente às suas necessidades.</p>
+<h2 id='representacao-dos-dados'>Representação dos dados</h2>
+<p>A API tem em seu cerne o fato de ser uma API JSON, ou seja, JSON é único formato suportado. Em seguido iremos expor os principais padrões adotados que suportam o esquema da API.</p>
+<h3 id='representacao-de-listas'>Representação de Listas</h3>
+<p>Ao requisitar uma lista de um determinado produto, a resposta inclui um subconjunto dos atributos daquele recurso. Isso é o que chamamos de representação resumida do recurso. O principal motivo é o fato de alguns atributos serem computacionalmente caros de serem fornecidos em grandes quantidades. Então, visando a performance como um todo, esse formato reduzido exclui esses atributos. Para obtê-los, basta requisitar a representação detalhada.</p>
+
+<p>Por exemplo, ao realizar um requisição para obter a lista de produtos, você receberá a representação resumida dos produtos.</p>
+<h3 id='representacao-detalhada'>Representação Detalhada</h3>
+<p>No caso de requisitar um objeto específico de um recurso, a resposta irá retornar por padrão a representação detalhada desse recurso. Tal formato inclui todos os atributos daquele recurso. A única observação é que alguns atributos podem ser escondidos por motivos de permissões.</p>
+
+<p>Ao descrevermos cada método da API, será fornecida os atributos da representação detalhada dos recursos.</p>
+<h3 id='campos-vazios'>Campos vazios</h3>
+<p>Campos vazios, ou nulos, são retornados como null ao invés de serem omitidos.</p>
+<h3 id='timestamps'>Timestamps</h3>
+<p>Todas as timestamps são retornadas no seguinte formato: <code>YYYY-MM-DDTHH:MM:SSZ</code></p>
+<h2 id='paginacao'>Paginação</h2>
+<p>Requisições que retornam múltiplos items são paginadas por padrão para retornar apenas <code>10 itens</code>. Você pode especificar as páginas através do parâmetro <code>page</code>.</p>
+
+<p>Para alguns recursos você também pode especificar o tamanho da página até o limite de 100 itens, usando o parâmetro <code>per_page</code>.</p>
+
+<p>Observe que por razões técnicas, nem todos os recursos aceitam o parâmetro <code>per_page</code>.</p>
+
+<p>Abaixo um exemplo:</p>
+
+<p><code>
+$ curl &#39;https://sua-escola.myedools.com/api/school_products?page=2&amp;per_page=100&#39;
+</code></p>
+
+<aside class="notice">
+A paginação é 1-based, ou seja, a primeira página é a 1. Ao omitir o parâmetro page, sempre será retornado a primeira página.
+</aside>
 <h2 id='endpoint'>Endpoint</h2>
 <p>A URL base onde se encontra a raiz da nossa API é:</p>
 
 <p><code>https://sua-escola.myedools.com/api</code></p>
 
 <p>Todo o acesso à nossa API é feito usando o protocolo HTTPS, sem exceção, com dados criptografados para maior segurança.</p>
-<h2 id='autenticacao'>Autenticação</h2>
+<h2 id='versionamento'>Versionamento</h2>
+<p>Por padrão, todas as requisições para a API que não especificarem um versão serão redirecionadas para a última versão da API, que no momento é a v1.</p>
+
+<p>Por esse motivo, nós recomendamos que sempre explicite a versão que você deseja, mesmo se estiver usando a última versão. Dessa forma, quando futuras atualizações ocorrerem, sua aplicação estará requisitando a versão correta. Basta informar a versão no header da requisição:</p>
+
+<p><code>Accept: application/vnd.edools.core.v1+json</code></p>
+<h2 id='autorizacao'>Autorização</h2>
 <blockquote>
-<p>To authorize, use this code:</p>
+<p>Para realizar a autorização utilize:</p>
 </blockquote>
 <pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">)</span>
+<span class="n">api</span> <span class="o">=</span> <span class="no">Kittn</span><span class="o">::</span><span class="no">APIClient</span><span class="p">.</span><span class="nf">authorize!</span><span class="p">(</span><span class="s1">'Token token="CREDENTIALS"'</span><span class="p">)</span>
 </code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">kittn</span>
 
-<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'meowmeowmeow'</span><span class="p">)</span>
-</code></pre><pre class="highlight shell tab-shell"><code><span class="c"># With shell, you can just pass the correct header with each request</span>
-curl <span class="s2">"api_endpoint_here"</span>
-  -H <span class="s2">"Authorization: meowmeowmeow"</span>
+<span class="n">api</span> <span class="o">=</span> <span class="n">kittn</span><span class="o">.</span><span class="n">authorize</span><span class="p">(</span><span class="s">'Token token="CREDENTIALS"'</span><span class="p">)</span>
 </code></pre><pre class="highlight javascript tab-javascript"><code><span class="kr">const</span> <span class="nx">kittn</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'kittn'</span><span class="p">);</span>
 
-<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'meowmeowmeow'</span><span class="p">);</span>
+<span class="kd">let</span> <span class="nx">api</span> <span class="o">=</span> <span class="nx">kittn</span><span class="p">.</span><span class="nx">authorize</span><span class="p">(</span><span class="s1">'Token token="CREDENTIALS"'</span><span class="p">);</span>
 </code></pre>
-<blockquote>
-<p>Make sure to replace <code>meowmeowmeow</code> with your API key.</p>
-</blockquote>
+<p>Ao fazer um requisição para a API, ela irá passar por um processo de autenticação e autorização. A primeira verifica se as credencias que você tem são válidas para ter acesso à API. A segunda verifica se tais credenciais tem permissão para acessar o dado, ou conjunto de dados, solicitado.</p>
 
-<p>Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our <a href="http://example.com/developers">developer portal</a>.</p>
+<p>O modelo responsável por gerenciar essa lógica na API é o <code>ApiKey</code>. Cada ApiKey possui um <code>token</code> e um <code>secret</code>, que são gerados automaticamente na sua criação, e combinados formam o que chamamos de <code>credentials</code>.</p>
 
-<p>Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:</p>
+<p>Além deles, a ApiKey possui um Owner e um Realm.</p>
+
+<table><thead>
+<tr>
+<th>Owner</th>
+<th>Realm</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>O owner define o User ou App a quem pertence àquela chave.</td>
+<td>O Realm indica qual o domínio da API a chave terá acesso, que no geral são sempre Organization ou School.</td>
+</tr>
+</tbody></table>
+
+<p>No momento o único formato aceito para se autenticar na API é passando o seguinte header na chamada:</p>
 
 <p><code>Authorization: Token token=&quot;CREDENTIALS&quot;</code></p>
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Você deve substituir <code>CREDENTIALS</code> pela sua chave de API.
 </aside>
 <h1 id='kittens'>Kittens</h1><h2 id='get-all-kittens'>Get All Kittens</h2><pre class="highlight ruby tab-ruby"><code><span class="nb">require</span> <span class="s1">'kittn'</span>
 
