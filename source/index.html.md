@@ -8,6 +8,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 includes:
   - errors
+  - suporte
 
 search: true
 ---
@@ -120,9 +121,14 @@ No momento o único formato aceito para se autenticar na API é passando o segui
 Você deve substituir <code>CREDENTIALS</code> pela sua chave de API.
 </aside>
 
-# Kittens
+# Atividades
 
-## Get All Kittens
+## [GET] Listagem de todas as atividades de um curso
+
+Get a list of course's activities
+### HTTP Request
+
+`GET /courses/:course_id/activities or /school_products/:school_product_id/activities or /enrollments/:enrollment_id/activities`
 
 ```ruby
 require 'kittn'
@@ -136,11 +142,6 @@ import kittn
 
 api = kittn.authorize('meowmeowmeow')
 api.kittens.get()
-```
-
-```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: meowmeowmeow"
 ```
 
 ```javascript
@@ -171,124 +172,124 @@ let kittens = api.kittens.get();
 ]
 ```
 
-This endpoint retrieves all kittens.
+### Parâmetros
 
-### HTTP Request
-
-`GET http://example.com/api/kittens`
-
-### Query Parameters
-
-Parameter | Default | Description
+Nome | Tipo | Descrição
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+course_id | Integer | Identifier of the course
 
-<aside class="success">
-Remember — a happy kitten is an authenticated kitten!
-</aside>
+## [GET] Exibição de uma atividade
 
-## Get a Specific Kitten
+View a activity
+
+### HTTP Request
+
+`GET /activities/:id /school_products/:school_product_id/activities/:id or /enrollments/:enrollment_id/activities/:id`
 
 ```ruby
 require 'kittn'
 
 api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.get(2)
+api.kittens.get
 ```
 
 ```python
 import kittn
 
 api = kittn.authorize('meowmeowmeow')
-api.kittens.get(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: meowmeowmeow"
+api.kittens.get()
 ```
 
 ```javascript
 const kittn = require('kittn');
 
 let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.get(2);
+let kittens = api.kittens.get();
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
 ```
 
-This endpoint retrieves a specific kitten.
+### Parâmetros
 
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+activity_id | Integer | Identifier the activity
+
+## [POST] Criar atividades
+
+Create activity.
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
-
-## Delete a Specific Kitten
+`POST /activities`
 
 ```ruby
 require 'kittn'
 
 api = Kittn::APIClient.authorize!('meowmeowmeow')
-api.kittens.delete(2)
+api.kittens.get
 ```
 
 ```python
 import kittn
 
 api = kittn.authorize('meowmeowmeow')
-api.kittens.delete(2)
-```
-
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: meowmeowmeow"
+api.kittens.get()
 ```
 
 ```javascript
 const kittn = require('kittn');
 
 let api = kittn.authorize('meowmeowmeow');
-let max = api.kittens.delete(2);
+let kittens = api.kittens.get();
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
 ```
 
-This endpoint deletes a specific kitten.
+### Parâmetros
 
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
-
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+activity | Hash | The activity to create
+activity[title] | String | Title of the activity
+activity[type] | String | Type of the activity
+activity[show_comments] | String | Accept "always" and "approved". It is a view helper.
+activity[title] | exam_lesson_id | Lesson of the activity

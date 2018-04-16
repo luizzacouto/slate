@@ -1,7 +1,9 @@
 # Erros
 
 <aside class="notice">
-A API da Edools segue a definição padrão do protocolo HTTP, obedecendo aos códigos de resposta. Abaixo listamos alguns erros comuns.
+A API da Edools segue a definição padrão do protocolo HTTP, obedecendo aos códigos de resposta.
+
+Abaixo listaremos alguns erros comuns.
 </aside>
 
 ## JSON inválido
