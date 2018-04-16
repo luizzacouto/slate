@@ -2,14 +2,9 @@
 title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
   - ruby
   - python
   - javascript
-
-toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
-  - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
   - errors
@@ -17,15 +12,23 @@ includes:
 search: true
 ---
 
-# Introduction
+# Olá, desenvolvedor.
 
-Welcome to the Kittn API! You can use our API to access Kittn API endpoints, which can get information on various cats, kittens, and breeds in our database.
+## O que é possível fazer com a API Edools
 
-We have language bindings in Shell, Ruby, and Python! You can view code examples in the dark area to the right, and you can switch the programming language of the examples with the tabs in the top right.
+Com a nossa API você será capaz de integrar qualquer sistema externo ao Edools, realizar migrações de dados de plataformas antigas de maneira simples e direta, e construir aplicativos para estender uma funcionalidade existente ou até mesmo criar novas funcionalidades com sua lógica própria.
 
-This example API documentation page was created with [Slate](https://github.com/lord/slate). Feel free to edit it and use it as a base for your own API's documentation.
+Através da API você tem toda a flexibilidade necessária para adaptar o Edools às suas regras de negócio, tendo uma plataforma de ensino online que se encaixe perfeitamente às suas necessidades.
 
-# Authentication
+## Endpoint
+
+A URL base onde se encontra a raiz da nossa API é:
+
+`https://sua-escola.myedools.com/api`
+
+Todo o acesso à nossa API é feito usando o protocolo HTTPS, sem exceção, com dados criptografados para maior segurança.
+
+## Autenticação
 
 > To authorize, use this code:
 
@@ -59,7 +62,7 @@ Kittn uses API keys to allow access to the API. You can register a new Kittn API
 
 Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: meowmeowmeow`
+`Authorization: Token token="CREDENTIALS"`
 
 <aside class="notice">
 You must replace <code>meowmeowmeow</code> with your personal API key.
