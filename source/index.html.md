@@ -14,11 +14,54 @@ search: true
 
 # Olá, desenvolvedor.
 
-## O que é possível fazer com a API Edools
+## O que dá para fazer com a API?
 
 Com a nossa API você será capaz de integrar qualquer sistema externo ao Edools, realizar migrações de dados de plataformas antigas de maneira simples e direta, e construir aplicativos para estender uma funcionalidade existente ou até mesmo criar novas funcionalidades com sua lógica própria.
 
 Através da API você tem toda a flexibilidade necessária para adaptar o Edools às suas regras de negócio, tendo uma plataforma de ensino online que se encaixe perfeitamente às suas necessidades.
+
+## Representação dos dados
+
+A API tem em seu cerne o fato de ser uma API JSON, ou seja, JSON é único formato suportado. Em seguido iremos expor os principais padrões adotados que suportam o esquema da API.
+
+### Representação de Listas
+
+Ao requisitar uma lista de um determinado produto, a resposta inclui um subconjunto dos atributos daquele recurso. Isso é o que chamamos de representação resumida do recurso. O principal motivo é o fato de alguns atributos serem computacionalmente caros de serem fornecidos em grandes quantidades. Então, visando a performance como um todo, esse formato reduzido exclui esses atributos. Para obtê-los, basta requisitar a representação detalhada.
+
+Por exemplo, ao realizar um requisição para obter a lista de produtos, você receberá a representação resumida dos produtos.
+
+### Representação Detalhada
+
+No caso de requisitar um objeto específico de um recurso, a resposta irá retornar por padrão a representação detalhada desse recurso. Tal formato inclui todos os atributos daquele recurso. A única observação é que alguns atributos podem ser escondidos por motivos de permissões.
+
+Ao descrevermos cada método da API, será fornecida os atributos da representação detalhada dos recursos.
+
+### Campos vazios
+
+Campos vazios, ou nulos, são retornados como null ao invés de serem omitidos.
+
+### Timestamps
+
+Todas as timestamps são retornadas no seguinte formato: `YYYY-MM-DDTHH:MM:SSZ`
+
+## Paginação
+
+Requisições que retornam múltiplos items são paginadas por padrão para retornar apenas `10 itens`. Você pode especificar as páginas através do parâmetro `page`.
+
+Para alguns recursos você também pode especificar o tamanho da página até o limite de 100 itens, usando o parâmetro `per_page`.
+
+Observe que por razões técnicas, nem todos os recursos aceitam o parâmetro `per_page`.
+
+Abaixo um exemplo:
+
+`
+$ curl 'https://sua-escola.myedools.com/api/school_products?page=2&per_page=100'
+`
+
+<aside class="notice">
+A paginação é 1-based, ou seja, a primeira página é a 1. Ao omitir o parâmetro page, sempre será retornado a primeira página.
+</aside>
+
 
 ## Endpoint
 
@@ -28,44 +71,53 @@ A URL base onde se encontra a raiz da nossa API é:
 
 Todo o acesso à nossa API é feito usando o protocolo HTTPS, sem exceção, com dados criptografados para maior segurança.
 
-## Autenticação
 
-> To authorize, use this code:
+## Versionamento
+
+Por padrão, todas as requisições para a API que não especificarem um versão serão redirecionadas para a última versão da API, que no momento é a v1.
+
+Por esse motivo, nós recomendamos que sempre explicite a versão que você deseja, mesmo se estiver usando a última versão. Dessa forma, quando futuras atualizações ocorrerem, sua aplicação estará requisitando a versão correta. Basta informar a versão no header da requisição:
+
+`Accept: application/vnd.edools.core.v1+json`
+
+## Autorização
+
+> Para realizar a autorização utilize:
 
 ```ruby
 require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
 ```
 
 ```python
 import kittn
 
-api = kittn.authorize('meowmeowmeow')
-```
-
-```shell
-# With shell, you can just pass the correct header with each request
-curl "api_endpoint_here"
-  -H "Authorization: meowmeowmeow"
+api = kittn.authorize('Token token="CREDENTIALS"')
 ```
 
 ```javascript
 const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
+let api = kittn.authorize('Token token="CREDENTIALS"');
 ```
 
-> Make sure to replace `meowmeowmeow` with your API key.
+Ao fazer um requisição para a API, ela irá passar por um processo de autenticação e autorização. A primeira verifica se as credencias que você tem são válidas para ter acesso à API. A segunda verifica se tais credenciais tem permissão para acessar o dado, ou conjunto de dados, solicitado.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+O modelo responsável por gerenciar essa lógica na API é o `ApiKey`. Cada ApiKey possui um `token` e um `secret`, que são gerados automaticamente na sua criação, e combinados formam o que chamamos de `credentials`.
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Além deles, a ApiKey possui um Owner e um Realm.
+
+Owner | Realm
+--------- | ------- | -----------
+O owner define o User ou App a quem pertence àquela chave. | O Realm indica qual o domínio da API a chave terá acesso, que no geral são sempre Organization ou School.
+
+No momento o único formato aceito para se autenticar na API é passando o seguinte header na chamada:
 
 `Authorization: Token token="CREDENTIALS"`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+Você deve substituir <code>CREDENTIALS</code> pela sua chave de API.
 </aside>
 
 # Kittens
