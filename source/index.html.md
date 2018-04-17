@@ -16,12 +16,13 @@ includes:
   - sessions
   - users
   - errors
+  - cases
   - suporte
 
 search: true
 ---
 
-# Olá, desenvolvedor.
+# Primeiros passos
 
 ## O que dá para fazer com a API?
 
