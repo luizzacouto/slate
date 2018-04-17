@@ -123,7 +123,7 @@ Você deve substituir <code>CREDENTIALS</code> pela sua chave de API.
 
 # Atividades
 
-## [GET] Listagem de todas as atividades de um curso
+## <img src="/images/get.png"> Listagem de todas as atividades de um curso
 
 Get a list of course's activities
 ### HTTP Request
@@ -133,21 +133,21 @@ Get a list of course's activities
 ```ruby
 require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
 api.kittens.get
 ```
 
 ```python
 import kittn
 
-api = kittn.authorize('meowmeowmeow')
+api = kittn.authorize('Token token="CREDENTIALS"')
 api.kittens.get()
 ```
 
 ```javascript
 const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
+let api = kittn.authorize('Token token="CREDENTIALS"');
 let kittens = api.kittens.get();
 ```
 
@@ -178,7 +178,7 @@ Nome | Tipo | Descrição
 --------- | ------- | -----------
 course_id | Integer | Identifier of the course
 
-## [GET] Exibição de uma atividade
+## <img src="/images/get.png"> Exibição de uma atividade
 
 View a activity
 
@@ -189,21 +189,21 @@ View a activity
 ```ruby
 require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
 api.kittens.get
 ```
 
 ```python
 import kittn
 
-api = kittn.authorize('meowmeowmeow')
+api = kittn.authorize('Token token="CREDENTIALS"')
 api.kittens.get()
 ```
 
 ```javascript
 const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
+let api = kittn.authorize('Token token="CREDENTIALS"');
 let kittens = api.kittens.get();
 ```
 
@@ -234,7 +234,7 @@ Nome | Tipo | Descrição
 --------- | ------- | -----------
 activity_id | Integer | Identifier the activity
 
-## [POST] Criar atividades
+## <img src="/images/post.png"> Criar atividades
 
 Create activity.
 
@@ -245,21 +245,21 @@ Create activity.
 ```ruby
 require 'kittn'
 
-api = Kittn::APIClient.authorize!('meowmeowmeow')
+api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
 api.kittens.get
 ```
 
 ```python
 import kittn
 
-api = kittn.authorize('meowmeowmeow')
+api = kittn.authorize('Token token="CREDENTIALS"')
 api.kittens.get()
 ```
 
 ```javascript
 const kittn = require('kittn');
 
-let api = kittn.authorize('meowmeowmeow');
+let api = kittn.authorize('Token token="CREDENTIALS"');
 let kittens = api.kittens.get();
 ```
 
@@ -293,3 +293,255 @@ activity[title] | String | Title of the activity
 activity[type] | String | Type of the activity
 activity[show_comments] | String | Accept "always" and "approved". It is a view helper.
 activity[title] | exam_lesson_id | Lesson of the activity
+
+# Matrículas
+
+## <img src="/images/get.png"> Listar a matrícula
+
+View an enrollment.
+
+### HTTP Request
+
+`GET /enrollments/:id or /enrollments/:code?find_by=code`
+
+```ruby
+require 'kittn'
+
+api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
+api.kittens.get
+```
+
+```python
+import kittn
+
+api = kittn.authorize('Token token="CREDENTIALS"')
+api.kittens.get()
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('Token token="CREDENTIALS"');
+let kittens = api.kittens.get();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
+```
+
+### Parâmetros
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+id | Integer | The identifier of the enrollment
+
+## <img src="/images/get.png"> Listar todas as matrículas
+
+View an enrollment.
+
+### HTTP Request
+
+`GET /enrollments or /students/:student_id/enrollments or /course_classes/:course_class_id/enrollments or /school_products/:school_product_id/enrollments`
+
+```ruby
+require 'kittn'
+
+api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
+api.kittens.get
+```
+
+```python
+import kittn
+
+api = kittn.authorize('Token token="CREDENTIALS"')
+api.kittens.get()
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('Token token="CREDENTIALS"');
+let kittens = api.kittens.get();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
+```
+
+### Parâmetros
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+student_id | Integer | Identifier of the Student object (route dependence)
+course_class_id | Integer | Identifier of the CourseClass object (route dependence)
+school_product_id | Integer | Identifier of the SchoolProduct object (route dependence)
+
+## <img src="/images/post.png"> Criar matrículas
+
+Create an enrollment
+
+### HTTP Request
+
+`POST /enrollments`
+
+```ruby
+require 'kittn'
+
+api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
+api.kittens.get
+```
+
+```python
+import kittn
+
+api = kittn.authorize('Token token="CREDENTIALS"')
+api.kittens.get()
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('Token token="CREDENTIALS"');
+let kittens = api.kittens.get();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
+```
+
+### Parâmetros
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+enrollment | Hash | The enrollment to create
+enrollment[registration_id] | Integer | The identifier of the Registration object
+enrollment[school_product_id] | Integer | The identifier of the SchoolProduct object
+enrollment[max_attendance_type] | Integer | Enrollment type, can be indeterminate, time or attempts
+
+Para criar um array de matrículas:
+
+`POST /enrollments/batch`
+
+## <img src="/images/put.png"> Atualizar matrículas
+
+Create an enrollment
+
+### HTTP Request
+
+`PUT /enrollments/:id or /enrollments/:code?find_by=code`
+
+```ruby
+require 'kittn'
+
+api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
+api.kittens.get
+```
+
+```python
+import kittn
+
+api = kittn.authorize('Token token="CREDENTIALS"')
+api.kittens.get()
+```
+
+```javascript
+const kittn = require('kittn');
+
+let api = kittn.authorize('Token token="CREDENTIALS"');
+let kittens = api.kittens.get();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": 1,
+    "name": "Fluffums",
+    "breed": "calico",
+    "fluffiness": 6,
+    "cuteness": 7
+  },
+  {
+    "id": 2,
+    "name": "Max",
+    "breed": "unknown",
+    "fluffiness": 5,
+    "cuteness": 10
+  }
+]
+```
+
+### Parâmetros
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+enrollment | Hash | The enrollment to create
+enrollment[registration_id] | Integer | The identifier of the Registration object
+enrollment[school_product_id] | Integer | The identifier of the SchoolProduct object
+enrollment[max_attendance_type] | Integer | Enrollment type, can be indeterminate, time or attempts
+
+### Parâmetros opcionais
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+enrollment[max_attendance_length] | Integer | Attendance length. Required if enrollment[max_attendance_type] is time or attempts
+enrollment[status] |  String | Enrollment status, can be pending, active, expired, deactivated or canceled
+enrollment[available_until] | DateTime | Date of enrollment's expiration. Required if enrollment[unlimited] is false
+enrollment[created_at] |  DateTime | Date of enrollment's creation.
+enrollment[activated_at] |  DateTime | Date of enrollment's activation.
+enrollment[unlimited] | Boolean | Says if the enrollment is unlimited [true, false]
+enrollment[code] |  String | Representation code of enrollment (uniq)
+enrollment[time_spent] |  Integer | This param will be permitted by using an App's credential
+enrollment[course_class_ids] |  Array<Integer> |An array of course classes ids to associate to the enrollment
