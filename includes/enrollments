@@ -1,0 +1,210 @@
+<h1 id='matriculas'>Matrículas</h1><h2 id='listar-a-matricula'><img src="/images/get.png"> Listar a matrícula</h2>
+<p>View an enrollment.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /enrollments/:id or /enrollments/:code?find_by=code</code></p>
+<pre class="highlight ruby tab-ruby"><code><span class="no">EXEMPLO</span> <span class="no">DE</span> <span class="no">CHAMADA</span> <span class="no">UTILIZANDO</span> <span class="no">RUBY</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="n">EXEMPLO</span> <span class="n">DE</span> <span class="n">CHAMADA</span> <span class="n">UTILIZADO</span> <span class="n">PHYTON</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">EXEMPLO</span> <span class="nx">DE</span> <span class="nx">CHAMADA</span> <span class="nx">UTILIZANDO</span> <span class="nx">JS</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="err">EXEMPLO</span><span class="w"> </span><span class="err">DE</span><span class="w"> </span><span class="err">JSON</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='parametros-obrigatorios'>Parâmetros obrigatórios</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>Integer</td>
+<td>The identifier of the enrollment</td>
+</tr>
+</tbody></table>
+<h2 id='listar-todas-as-matriculas'><img src="/images/get.png"> Listar todas as matrículas</h2>
+<p>View an enrollment.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /enrollments or /students/:student_id/enrollments or /course_classes/:course_class_id/enrollments or /school_products/:school_product_id/enrollments</code></p>
+<pre class="highlight ruby tab-ruby"><code><span class="no">EXEMPLO</span> <span class="no">DE</span> <span class="no">CHAMADA</span> <span class="no">UTILIZANDO</span> <span class="no">RUBY</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="n">EXEMPLO</span> <span class="n">DE</span> <span class="n">CHAMADA</span> <span class="n">UTILIZADO</span> <span class="n">PHYTON</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">EXEMPLO</span> <span class="nx">DE</span> <span class="nx">CHAMADA</span> <span class="nx">UTILIZANDO</span> <span class="nx">JS</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="err">EXEMPLO</span><span class="w"> </span><span class="err">DE</span><span class="w"> </span><span class="err">JSON</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='parametros-obrigatorios-2'>Parâmetros obrigatórios</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>student_id</td>
+<td>Integer</td>
+<td>Identifier of the Student object (route dependence)</td>
+</tr>
+<tr>
+<td>course_class_id</td>
+<td>Integer</td>
+<td>Identifier of the CourseClass object (route dependence)</td>
+</tr>
+<tr>
+<td>school_product_id</td>
+<td>Integer</td>
+<td>Identifier of the SchoolProduct object (route dependence)</td>
+</tr>
+</tbody></table>
+<h2 id='criar-matriculas'><img src="/images/post.png"> Criar matrículas</h2>
+<p>Create an enrollment</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST /enrollments</code></p>
+<pre class="highlight ruby tab-ruby"><code><span class="no">EXEMPLO</span> <span class="no">DE</span> <span class="no">CHAMADA</span> <span class="no">UTILIZANDO</span> <span class="no">RUBY</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="n">EXEMPLO</span> <span class="n">DE</span> <span class="n">CHAMADA</span> <span class="n">UTILIZADO</span> <span class="n">PHYTON</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">EXEMPLO</span> <span class="nx">DE</span> <span class="nx">CHAMADA</span> <span class="nx">UTILIZANDO</span> <span class="nx">JS</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="err">EXEMPLO</span><span class="w"> </span><span class="err">DE</span><span class="w"> </span><span class="err">JSON</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='parametros-obrigatorios-3'>Parâmetros obrigatórios</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>enrollment</td>
+<td>Hash</td>
+<td>The enrollment to create</td>
+</tr>
+<tr>
+<td>enrollment[registration_id]</td>
+<td>Integer</td>
+<td>The identifier of the Registration object</td>
+</tr>
+<tr>
+<td>enrollment[school_product_id]</td>
+<td>Integer</td>
+<td>The identifier of the SchoolProduct object</td>
+</tr>
+<tr>
+<td>enrollment[max_attendance_type]</td>
+<td>Integer</td>
+<td>Enrollment type, can be indeterminate, time or attempts</td>
+</tr>
+</tbody></table>
+
+<p>Para criar um array de matrículas:</p>
+
+<p><code>POST /enrollments/batch</code></p>
+<h2 id='atualizar-matriculas'><img src="/images/put.png"> Atualizar matrículas</h2>
+<p>Create an enrollment</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT /enrollments/:id or /enrollments/:code?find_by=code</code></p>
+<pre class="highlight ruby tab-ruby"><code><span class="no">EXEMPLO</span> <span class="no">DE</span> <span class="no">CHAMADA</span> <span class="no">UTILIZANDO</span> <span class="no">RUBY</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="n">EXEMPLO</span> <span class="n">DE</span> <span class="n">CHAMADA</span> <span class="n">UTILIZADO</span> <span class="n">PHYTON</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">EXEMPLO</span> <span class="nx">DE</span> <span class="nx">CHAMADA</span> <span class="nx">UTILIZANDO</span> <span class="nx">JS</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="err">EXEMPLO</span><span class="w"> </span><span class="err">DE</span><span class="w"> </span><span class="err">JSON</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h3 id='parametros-obrigatorios-4'>Parâmetros obrigatórios</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>enrollment</td>
+<td>Hash</td>
+<td>The enrollment to create</td>
+</tr>
+<tr>
+<td>enrollment[registration_id]</td>
+<td>Integer</td>
+<td>The identifier of the Registration object</td>
+</tr>
+<tr>
+<td>enrollment[school_product_id]</td>
+<td>Integer</td>
+<td>The identifier of the SchoolProduct object</td>
+</tr>
+<tr>
+<td>enrollment[max_attendance_type]</td>
+<td>Integer</td>
+<td>Enrollment type, can be indeterminate, time or attempts</td>
+</tr>
+</tbody></table>
+<h3 id='parametros-opcionais'>Parâmetros opcionais</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>enrollment[max_attendance_length]</td>
+<td>Integer</td>
+<td>Attendance length. Required if enrollment[max_attendance_type] is time or attempts</td>
+</tr>
+<tr>
+<td>enrollment[status]</td>
+<td>String</td>
+<td>Enrollment status, can be pending, active, expired, deactivated or canceled</td>
+</tr>
+<tr>
+<td>enrollment[available_until]</td>
+<td>DateTime</td>
+<td>Date of enrollment&#39;s expiration. Required if enrollment[unlimited] is false</td>
+</tr>
+<tr>
+<td>enrollment[created_at]</td>
+<td>DateTime</td>
+<td>Date of enrollment&#39;s creation.</td>
+</tr>
+<tr>
+<td>enrollment[activated_at]</td>
+<td>DateTime</td>
+<td>Date of enrollment&#39;s activation.</td>
+</tr>
+<tr>
+<td>enrollment[unlimited]</td>
+<td>Boolean</td>
+<td>Says if the enrollment is unlimited [true, false]</td>
+</tr>
+<tr>
+<td>enrollment[code]</td>
+<td>String</td>
+<td>Representation code of enrollment (uniq)</td>
+</tr>
+<tr>
+<td>enrollment[time_spent]</td>
+<td>Integer</td>
+<td>This param will be permitted by using an App&#39;s credential</td>
+</tr>
+<tr>
+<td>enrollment[course_class_ids]</td>
+<td>Array<Integer></td>
+<td>An array of course classes ids to associate to the enrollment</td>
+</tr>
+</tbody></table>
