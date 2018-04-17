@@ -1,0 +1,83 @@
+<h1 id='sessoes'>Sessões</h1><h2 id='criar-sessao'><img src="/images/post.png"> Criar sessão</h2>
+<p>This action is used to create credentials (token) to users or to check if the current credential (token) still valid.</p>
+
+<p>To create credentials a request token isn&#39;t required, but to check the current credential the request token is required but the password isn&#39;t.</p>
+
+<p><strong>Note: If password is present the action will always check it and will generate a new credential.</strong></p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /users/sign_in</code></p>
+<pre class="highlight ruby tab-ruby"><code><span class="no">EXEMPLO</span> <span class="no">DE</span> <span class="no">CHAMADA</span> <span class="no">UTILIZANDO</span> <span class="no">RUBY</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="n">EXEMPLO</span> <span class="n">DE</span> <span class="n">CHAMADA</span> <span class="n">UTILIZADO</span> <span class="n">PHYTON</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">EXEMPLO</span> <span class="nx">DE</span> <span class="nx">CHAMADA</span> <span class="nx">UTILIZANDO</span> <span class="nx">JS</span>
+</code></pre>
+<blockquote>
+<p>If sign in is ok it will return the user with the credentials, if not it will return unauthorized</p>
+</blockquote>
+<h3 id='parametros-obrigatorios'>Parâmetros obrigatórios</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user</td>
+<td>Hash</td>
+<td>The user to sign in</td>
+</tr>
+<tr>
+<td>user[email]</td>
+<td>String</td>
+<td>The user&#39;s email. Can pass login instead</td>
+</tr>
+<tr>
+<td>user[password]</td>
+<td>String</td>
+<td>The user&#39;s password</td>
+</tr>
+<tr>
+<td>realm</td>
+<td>Hash</td>
+<td>The user&#39;s realm</td>
+</tr>
+<tr>
+<td>realm[type]</td>
+<td>String</td>
+<td>The realm type. Can be <code>School</code> or <code>Organization</code></td>
+</tr>
+<tr>
+<td>realm[id]</td>
+<td>Integer</td>
+<td>The realm id</td>
+</tr>
+</tbody></table>
+<h3 id='parametros-opcionais'>Parâmetros opcionais</h3>
+<table><thead>
+<tr>
+<th>Nome</th>
+<th>Tipo</th>
+<th>Descrição</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>user[login]</td>
+<td>String</td>
+<td>The user&#39;s username. Can pass email instead</td>
+</tr>
+</tbody></table>
+<h2 id='excluir-sessao'><img src="/images/delete.png"> Excluir sessão</h2><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>DELETE /users/sign_out</code></p>
+
+<p>The destroyed user&#39;s ApiKey</p>
+<pre class="highlight ruby tab-ruby"><code><span class="no">EXEMPLO</span> <span class="no">DE</span> <span class="no">CHAMADA</span> <span class="no">UTILIZANDO</span> <span class="no">RUBY</span>
+</code></pre><pre class="highlight python tab-python"><code><span class="n">EXEMPLO</span> <span class="n">DE</span> <span class="n">CHAMADA</span> <span class="n">UTILIZADO</span> <span class="n">PHYTON</span>
+</code></pre><pre class="highlight javascript tab-javascript"><code><span class="nx">EXEMPLO</span> <span class="nx">DE</span> <span class="nx">CHAMADA</span> <span class="nx">UTILIZANDO</span> <span class="nx">JS</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="err">EXEMPLO</span><span class="w"> </span><span class="err">DE</span><span class="w"> </span><span class="err">JSON</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre>
