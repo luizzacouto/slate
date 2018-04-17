@@ -131,48 +131,26 @@ Get a list of course's activities
 `GET /courses/:course_id/activities or /school_products/:school_product_id/activities or /enrollments/:enrollment_id/activities`
 
 ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
-api.kittens.get
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
 ```
 
 ```python
-import kittn
-
-api = kittn.authorize('Token token="CREDENTIALS"')
-api.kittens.get()
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
 ```
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('Token token="CREDENTIALS"');
-let kittens = api.kittens.get();
+EXEMPLO DE CHAMADA UTILIZANDO JS
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+  EXEMPLO DE JSON
 ]
 ```
 
-### Parâmetros
+### Parâmetros obrigatórios
 
 Nome | Tipo | Descrição
 --------- | ------- | -----------
@@ -187,48 +165,26 @@ View a activity
 `GET /activities/:id /school_products/:school_product_id/activities/:id or /enrollments/:enrollment_id/activities/:id`
 
 ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
-api.kittens.get
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
 ```
 
 ```python
-import kittn
-
-api = kittn.authorize('Token token="CREDENTIALS"')
-api.kittens.get()
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
 ```
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('Token token="CREDENTIALS"');
-let kittens = api.kittens.get();
+EXEMPLO DE CHAMADA UTILIZANDO JS
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+  EXEMPLO DE JSON
 ]
 ```
 
-### Parâmetros
+### Parâmetros obrigatórios
 
 Nome | Tipo | Descrição
 --------- | ------- | -----------
@@ -243,48 +199,26 @@ Create activity.
 `POST /activities`
 
 ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
-api.kittens.get
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
 ```
 
 ```python
-import kittn
-
-api = kittn.authorize('Token token="CREDENTIALS"')
-api.kittens.get()
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
 ```
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('Token token="CREDENTIALS"');
-let kittens = api.kittens.get();
+EXEMPLO DE CHAMADA UTILIZANDO JS
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+  EXEMPLO DE JSON
 ]
 ```
 
-### Parâmetros
+### Parâmetros obrigatórios
 
 Nome | Tipo | Descrição
 --------- | ------- | -----------
@@ -293,6 +227,40 @@ activity[title] | String | Title of the activity
 activity[type] | String | Type of the activity
 activity[show_comments] | String | Accept "always" and "approved". It is a view helper.
 activity[title] | exam_lesson_id | Lesson of the activity
+
+## <img src="/images/delete.png"> Excluir atividade
+
+Delete activity.
+
+### HTTP Request
+
+`DELETE /activities/:id`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+id | Integer | Id of an activity
 
 # Matrículas
 
@@ -305,48 +273,26 @@ View an enrollment.
 `GET /enrollments/:id or /enrollments/:code?find_by=code`
 
 ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
-api.kittens.get
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
 ```
 
 ```python
-import kittn
-
-api = kittn.authorize('Token token="CREDENTIALS"')
-api.kittens.get()
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
 ```
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('Token token="CREDENTIALS"');
-let kittens = api.kittens.get();
+EXEMPLO DE CHAMADA UTILIZANDO JS
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+  EXEMPLO DE JSON
 ]
 ```
 
-### Parâmetros
+### Parâmetros obrigatórios
 
 Nome | Tipo | Descrição
 --------- | ------- | -----------
@@ -361,48 +307,26 @@ View an enrollment.
 `GET /enrollments or /students/:student_id/enrollments or /course_classes/:course_class_id/enrollments or /school_products/:school_product_id/enrollments`
 
 ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
-api.kittens.get
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
 ```
 
 ```python
-import kittn
-
-api = kittn.authorize('Token token="CREDENTIALS"')
-api.kittens.get()
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
 ```
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('Token token="CREDENTIALS"');
-let kittens = api.kittens.get();
+EXEMPLO DE CHAMADA UTILIZANDO JS
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+  EXEMPLO DE JSON
 ]
 ```
 
-### Parâmetros
+### Parâmetros obrigatórios
 
 Nome | Tipo | Descrição
 --------- | ------- | -----------
@@ -419,48 +343,26 @@ Create an enrollment
 `POST /enrollments`
 
 ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
-api.kittens.get
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
 ```
 
 ```python
-import kittn
-
-api = kittn.authorize('Token token="CREDENTIALS"')
-api.kittens.get()
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
 ```
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('Token token="CREDENTIALS"');
-let kittens = api.kittens.get();
+EXEMPLO DE CHAMADA UTILIZANDO JS
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+  EXEMPLO DE JSON
 ]
 ```
 
-### Parâmetros
+### Parâmetros obrigatórios
 
 Nome | Tipo | Descrição
 --------- | ------- | -----------
@@ -482,48 +384,26 @@ Create an enrollment
 `PUT /enrollments/:id or /enrollments/:code?find_by=code`
 
 ```ruby
-require 'kittn'
-
-api = Kittn::APIClient.authorize!('Token token="CREDENTIALS"')
-api.kittens.get
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
 ```
 
 ```python
-import kittn
-
-api = kittn.authorize('Token token="CREDENTIALS"')
-api.kittens.get()
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
 ```
 
 ```javascript
-const kittn = require('kittn');
-
-let api = kittn.authorize('Token token="CREDENTIALS"');
-let kittens = api.kittens.get();
+EXEMPLO DE CHAMADA UTILIZANDO JS
 ```
 
 > The above command returns JSON structured like this:
 
 ```json
 [
-  {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
-  }
+  EXEMPLO DE JSON
 ]
 ```
 
-### Parâmetros
+### Parâmetros obrigatórios
 
 Nome | Tipo | Descrição
 --------- | ------- | -----------
@@ -545,3 +425,295 @@ enrollment[unlimited] | Boolean | Says if the enrollment is unlimited [true, fal
 enrollment[code] |  String | Representation code of enrollment (uniq)
 enrollment[time_spent] |  Integer | This param will be permitted by using an App's credential
 enrollment[course_class_ids] |  Array<Integer> |An array of course classes ids to associate to the enrollment
+
+# Usuários
+
+## <img src="/images/get.png"> Listar alunos ou colaboradores
+
+View list of all students or collaborators. This list is paginated and filtered if needed.
+
+### HTTP Request
+
+`GET /students or /collaborators`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros opcionais
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+school_product_id | Array<Integer> | Student filter. Filter by school_product_id. Only users that have relations with some object with the id passed in the school_product_id will be in the list.
+course_class_id | Array<Integer> | Student filter. Filter by course_class_id. Only users that have relations with some object with the id passed in the course_class_id will be in the list.
+uninitiated_lesson_id | Array<Integer> | Student filter. Filter by uninitiated_leson_id. Only users that have relations with some object with the id passed in the uninitiated_leson_id will be in the list.
+course_id | Array<Integer> | Student filter. Filter by course_id. Only users that have relations with some object with the id passed in the course_id will be in the list.
+enrollment_status | Array<String> | Student filter. Filter by enrollmen_status. The available statuses are pending, active, expired, deactivated and canceled.
+status  | Array<String> | Student filter. Filter by status
+progress | Float | Student filter. Filter by progress. If used together with school_product_idòr it will return only students that have that progress in the products selected. *Important*: when this filter is used theprogress>=andprogress<=` will be ignored!
+progress>= | Float | Student filter. Filter students that have progress equal or greater than the progress given. If used together with school_product_id it will return only students that have that progress in the products selected. This filter can be used together with progress<=.
+progress<= | Float | Student filter. Filter students that have progress equal or less than the progress given. If used together with school_product_id it will return only students that have that progress in the products selected. This filter can be used together with progress<=.
+completed_progress_at>= | DateTime | Student filter. Filter students that have completed the progress at the given DateTime or after that. If used together with school_product_id it will filter by students that completed the progress in those courses.
+completed_progress_at<= | DateTime | Student filter. Filter students that have completed the progress at the given DateTime or before that. If used together with school_product_id it will filter by students that completed the progress in those courses.
+enrolled_at>= | DateTime | Student filter. Filter students that have activated an enrollment at the given DateTime or after that. If used together with school_product_id it will filter by students that activated an enrollment in those courses.
+enrolled_at<= | DateTime | Student filter. Filter students that have activated an enrollment at the given DateTime or before that. If used together with school_product_id it will filter by students that activated an enrollment in those courses.
+last_progress_updated_at>=  | DateTime | Student filter. Filter students that have did some progress at the given DateTime or after that. ps: Some school's actions does not generate progress. If used together with school_product_id it will filter by students that have progresses in those courses.
+last_progress_updated_at<=  | DateTime | Student filter. Filter students that have did some progress at the given DateTime or before that. ps: Some school's actions does not generate progress. If used together with school_product_id it will filter by students that have progresses in those courses.
+ids | String | Filter by id. Return the users with the passed ids.
+full_name | String | Filter by full_name. This is an espcial filter, with it you can pass any group of chars, the filter will select the users that the fullname or the email includes those chars.
+sort  | String |Filter to sort the users by an attribute
+direction | String |Filter to indicate the sort direction. It can be asc ou desc
+
+## <img src="/images/post.png"> Criar alunos ou colaboradores
+
+Create student or collaborator
+
+### HTTP Request
+
+`POST /students/ or /collaborators/`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+user | Hash | The user to create
+user[first_name] | String | User first name
+user[email] | String | User email that should be uniq
+user[password] | String | Should be greater than 6 chars
+user[password_confirmation] | String | Should be equal the password
+
+
+### Parâmetros opcionais
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+user[last_name] | String | User last name
+user[username]  | String | Nickname
+user[cpf] | String | CPF
+user[rg]  | String | RG
+user[phone] | String
+user[extra_phone] | String
+user[skype] | String
+user[twitter] | String
+user[facebook]  | String
+user[company_name]  | String
+user[company_position]  | String
+user[born_at] | DateTime
+user[biography] | String
+user[cover_image_url] | String
+user[created_at] | DateTime | Exists only for Student. It overwrites the default created_at, normally used to migrate old students.
+user[last_sign_in_at] | DateTime | Exists only for Student
+user[role_ids]  | Array<Integer> | Roles to associate to the User
+user[address_attributes] | Hash
+user[address_attributes][id] | Integer |If not present it will create a new address
+user[address_attributes][street]  | String | It will update the attribute if the user[address_attributes][id] is present
+user[address_attributes][number] | Integer | It will update the attribute if the user[address_attributes][id] is present
+user[address_attributes][complement]  | String | It will update the attribute if the user[address_attributes][id] is present
+user[address_attributes][city]  | String | It will update the attribute if the user[address_attributes][id] is present
+user[address_attributes][state] | String | It will update the attribute if the user[address_attributes][id] is present
+user[address_attributes][zip_code]  | String | It will update the attribute if the user[address_attributes][id] is present
+user[address_attributes][district]  | String | It will update the attribute if the user[address_attributes][id] is present
+
+## <img src="/images/post.png"> Atualizando um aluno ou colaborador
+
+Update student or collaborator
+
+### HTTP Request
+
+`PUT /students/:id or /collaborators/:id`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+user | Hash | The user to create
+user[first_name] | String | The identifier of the Registration object
+user[email] | String | The identifier of the Registration object
+user[password] | String | The identifier of the SchoolProduct object
+user[password_confirmation] | String | Enrollment type, can be indeterminate, time or attempts
+
+## <img src="/images/delete.png"> Excluir aluno ou colaborador
+
+Destroy a student or collaborator
+
+### HTTP Request
+
+`DELETE /students/:id or /collaborators/:id
+`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+id | Integer | Id of user
+
+# Produtos
+
+## <img src="/images/get.png"> Listar produtos
+
+Get a list of school_products
+
+### HTTP Request
+
+`GET /school_products`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+## <img src="/images/post.png"> Criar produtos
+
+Create new school_product
+
+### HTTP Request
+
+`POST /school_products`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+school_product | Hash | The school_product to create
+school_product[title] | String | Title of the school_product
+
+### Parâmetros opcionais
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+school_product[description] | String | Status of the school_product
+school_product[subtitle]  | String
+school_product[logo]  | String
+school_product[video_url] | String
+school_product[video_title] | String
+school_product[video_description] | String
+school_product[published] | Boolean
+school_product[hidden]  | Boolean
+school_product[restricted]  | Boolean
+school_product[certification] | Boolean
+school_product[classes_auto_generation] | Boolean
+school_product[certification_min_progress]  | Integer |
+school_product[meta_title]  | String |
+school_product[meta_description]  | Text
+school_product[meta_keys] | Text
+school_product[available_time_type] | String |
+school_product[available_time_length] | Integer | Required if available_time_type == 'time'
+school_product[available_time_unit] | String | Required if available_time_type == 'time'
+school_product[expire_date] | DateTime | Required if available_time_type == 'date'
+school_product[library_resource_id] | Integer | Required if published == true
+school_product[max_attendance_type] | String
+school_product[max_attendance_length] | Integer | Required if max_attendance_type is 'time' or 'attempts'
+school_product[allowed_emails]  | String |
+school_product[class_teacher_ids] | Array<Integer> | Array
+school_product[category_ids] | Array<Integer> | Array
+school_product[gallery_media_ids] | Array<Integer> | Array

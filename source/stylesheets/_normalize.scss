@@ -354,6 +354,10 @@ input[type="number"]::-webkit-outer-spin-button {
  *    (include `-moz` to future-proof).
  */
 
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: white;
+}
+
 input[type="search"] {
     -webkit-appearance: textfield; /* 1 */
     -moz-box-sizing: content-box;

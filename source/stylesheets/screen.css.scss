@@ -92,7 +92,7 @@ html, body {
       margin: $nav-v-padding $nav-padding;
       width: $nav-width - 30;
       outline: none;
-      color: $nav-text;
+      color: white;
       border-radius: 0; /* ios has a default border radius */
     }
 
@@ -100,7 +100,7 @@ html, body {
       position: absolute;
       top: 17px;
       left: $nav-padding;
-      color: $nav-text;
+      color: white;
       @extend %icon-search;
     }
   }
