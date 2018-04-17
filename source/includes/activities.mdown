@@ -1,0 +1,140 @@
+# Atividades
+
+## <img src="/images/get.png"> Listar todas as atividades de um curso
+
+Get a list of course's activities
+### HTTP Request
+
+`GET /courses/:course_id/activities or /school_products/:school_product_id/activities or /enrollments/:enrollment_id/activities`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+course_id | Integer | Identifier of the course
+
+## <img src="/images/get.png"> Listar uma atividade
+
+View a activity
+
+### HTTP Request
+
+`GET /activities/:id /school_products/:school_product_id/activities/:id or /enrollments/:enrollment_id/activities/:id`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+activity_id | Integer | Identifier the activity
+
+## <img src="/images/post.png"> Criar atividade
+
+Create activity.
+
+### HTTP Request
+
+`POST /activities`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+activity | Hash | The activity to create
+activity[title] | String | Title of the activity
+activity[type] | String | Type of the activity
+activity[show_comments] | String | Accept "always" and "approved". It is a view helper.
+activity[title] | exam_lesson_id | Lesson of the activity
+
+## <img src="/images/delete.png"> Excluir atividade
+
+Delete activity.
+
+### HTTP Request
+
+`DELETE /activities/:id`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+id | Integer | Id of an activity

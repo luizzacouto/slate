@@ -1,0 +1,234 @@
+# Progressos
+
+<aside class="info">
+Dividiremos a parte de <b>progresso</b> em dois recursos: <i>LessonProgress</i> e <i>ProgressCard</i>.
+</br>
+</br>
+Um <i>ProgressCard</i> é formado pelo conjunto de <i>lesson_progresses</i> de uma mesma matrícula.
+</aside>
+
+## <img src="/images/get.png"> Listar progresso na aula
+
+View an lesson_progress
+
+### HTTP Request
+
+`GET /lessons_progresses/:id`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+id | Integer | Identifier the lesson_progress
+
+## <img src="/images/get.png"> Listar todos os progressos nas aulas
+
+View list of all lessons_progresses
+
+### HTTP Request
+
+`GET /enrollments/:enrollment_id/lessons_progresses or /students/:student_id/lessons_progresses or /school_products/:school_product_id/lessons_progresses`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+enrollment_id | Integer | Identifier of the Enrollment object
+student_id | Integer | Identifier of the Student object
+school_product_id | Integer | Identifier of the SchoolProduct object
+
+## <img src="/images/post.png"> Criar progresso na aula
+
+Create an lesson_progress
+
+### HTTP Request
+
+`POST /enrollments/:enrollment_id/lessons_progresses`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+enrollment_id | Integer | Identifier of the Enrollment object
+lesson_progress | Hash | The lesson progress to create
+lesson_progress[lesson_id] | Integer | Identifier of the Lesson object
+lesson_progress[completed] | Boolean | Says if the lesson progress is completed
+
+### Parâmetros opcionais
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+lesson_progress[progress]   | Float | The ExamLesson or ContentLesson progress. Required if lesson_progress[completed] is false.
+lesson_progress[grade]  | Float | The grade of the ExamLesson object. Required if #lesson is an ExamLesson and lesson_progress[completed] is true.
+lesson_progress[created_at] | DateTime | Creation date. Passing this attribute implies to not run object's callbacks
+lesson_progress[current_video_time] | Integer | Current video time of lesson
+
+## <img src="/images/put.png"> Atualizar progresso na aula
+
+Create an enrollment
+
+### HTTP Request
+
+`PUT /lessons_progresses/:id`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+id | Integer | Identifier the lesson_progress
+lesson_progress | Hash | The lesson progress to update
+
+## <img src="/images/get.png"> Listar todos os progress_cards da matrícula
+
+Get a list of progress cards
+
+### HTTP Request
+
+`GET /progress_cards`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+## <img src="/images/post.png"> Criar um progress_card na matrícula
+
+Create an lesson_progress
+
+### HTTP Request
+
+`POST /enrollments/:enrollment_id/lessons_progresses`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+progress_card | Hash | The progress_card to create
+progress_card[school_id] | Integer
+progress_card[type] | String
+progress_card[enrollment_id] | Integer | Identifier of the Enrollment object
+
+### Parâmetros opcionais
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+progress_card[course_id]   | Integer | course_id required if type is CourseProgressCard
+progress_card[path_progress_card_id]   | Integer | path_progress_card_id required if type is PathProgressCard
+progress_card[progress]   | Integer | Count of lessons in progress
+progress_card[completed]  | Integer | Count of lessons completed
+progress_card[total] | Integer | Count of all lessons
+progress_card[created_at] | DateTime | Creation date

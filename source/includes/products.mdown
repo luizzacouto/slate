@@ -1,0 +1,162 @@
+# Produtos
+
+## <img src="/images/get.png"> Listar produtos
+
+Get a list of school_products
+
+### HTTP Request
+
+`GET /school_products`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+## <img src="/images/post.png"> Criar produtos
+
+Create new school_product
+
+### HTTP Request
+
+`POST /school_products`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+school_product | Hash | The school_product to create
+school_product[title] | String | Title of the school_product
+
+### Parâmetros opcionais
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+school_product[description] | String | Status of the school_product
+school_product[subtitle]  | String
+school_product[logo]  | String
+school_product[video_url] | String
+school_product[video_title] | String
+school_product[video_description] | String
+school_product[published] | Boolean
+school_product[hidden]  | Boolean
+school_product[restricted]  | Boolean
+school_product[certification] | Boolean
+school_product[classes_auto_generation] | Boolean
+school_product[certification_min_progress]  | Integer |
+school_product[meta_title]  | String |
+school_product[meta_description]  | Text
+school_product[meta_keys] | Text
+school_product[available_time_type] | String |
+school_product[available_time_length] | Integer | Required if available_time_type == 'time'
+school_product[available_time_unit] | String | Required if available_time_type == 'time'
+school_product[expire_date] | DateTime | Required if available_time_type == 'date'
+school_product[library_resource_id] | Integer | Required if published == true
+school_product[max_attendance_type] | String
+school_product[max_attendance_length] | Integer | Required if max_attendance_type is 'time' or 'attempts'
+school_product[allowed_emails]  | String |
+school_product[class_teacher_ids] | Array<Integer> | Array
+school_product[category_ids] | Array<Integer> | Array
+school_product[gallery_media_ids] | Array<Integer> | Array
+
+## <img src="/images/put.png"> Atualizar um produto
+
+Update an existing school_product and redirect to 'show' action
+
+### HTTP Request
+
+`PUT /school_products/:id`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+school_product | Hash | The school_product to create
+school_product[title] | String | Title of the school_product
+
+## <img src="/images/delete.png"> Excluir um produto
+
+Destroy school_product
+
+### HTTP Request
+
+`DELETE /school_products/:id`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+id | Integer | Id of an school_product

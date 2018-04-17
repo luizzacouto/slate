@@ -1,0 +1,136 @@
+# Cupons
+
+## <img src="/images/get.png"> Listar cupons
+
+Get a list of coupons
+
+### HTTP Request
+
+`GET /products/:product_id/coupons`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+product_id | Integer | The id of the product
+
+## <img src="/images/post.png"> Criar cupom
+
+Create new coupon
+
+### HTTP Request
+
+`POST /coupons`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+coupon | Hash | The coupon to create
+
+## <img src="/images/put.png"> Atualizar um cupom
+
+Update an existing coupon and redirect to 'show' action
+
+### HTTP Request
+
+`PUT /coupon/:id`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+id | Integer | The id of the coupon to update
+coupon | Hash | The coupon to update
+
+## <img src="/images/delete.png"> Excluir um cupom
+
+Destroy a coupon if unused
+
+### HTTP Request
+
+`DELETE /coupon/:id`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+id | Integer | The id of the coupon to destroy

@@ -1,0 +1,73 @@
+# Certificados
+
+## <img src="/images/get.png"> Listar todos os certificados
+
+Get a list of certificates
+
+### HTTP Request
+
+`GET /schools/:school_id/certificates`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+school_id | Integer | Identifier of the school
+
+## <img src="/images/post.png"> Criar certificado
+
+Create new certificate
+
+### HTTP Request
+
+`POST /certificates`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+certificate | Hash | The certificate to create
+certificate[s3_file_url] | String | The document url of the certificate
+certificate[enrollment_id] | Integer | The associated Enrollment
+certificate[school_product_id] | Integer | The associated SchoolProduct
+certificate[school_id] | Integer | The associated School

@@ -1,0 +1,72 @@
+# Sessões
+
+## <img src="/images/post.png"> Criar sessão
+
+This action is used to create credentials (token) to users or to check if the current credential (token) still valid.
+
+To create credentials a request token isn't required, but to check the current credential the request token is required but the password isn't.
+
+**Note: If password is present the action will always check it and will generate a new credential.**
+
+### HTTP Request
+
+`POST /users/sign_in`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> If sign in is ok it will return the user with the credentials, if not it will return unauthorized
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+user | Hash | The user to sign in
+user[email] | String | The user's email. Can pass login instead
+user[password] | String | The user's password
+realm | Hash | The user's realm
+realm[type] | String | The realm type. Can be `School` or `Organization`
+realm[id] | Integer | The realm id
+
+### Parâmetros opcionais
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+user[login] | String | The user's username. Can pass email instead
+
+## <img src="/images/delete.png"> Excluir sessão
+
+### HTTP Request
+
+`DELETE /users/sign_out`
+
+The destroyed user's ApiKey
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```

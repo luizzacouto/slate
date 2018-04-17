@@ -1,0 +1,163 @@
+# Matrículas
+
+## <img src="/images/get.png"> Listar a matrícula
+
+View an enrollment.
+
+### HTTP Request
+
+`GET /enrollments/:id or /enrollments/:code?find_by=code`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+id | Integer | The identifier of the enrollment
+
+## <img src="/images/get.png"> Listar todas as matrículas
+
+View an enrollment.
+
+### HTTP Request
+
+`GET /enrollments or /students/:student_id/enrollments or /course_classes/:course_class_id/enrollments or /school_products/:school_product_id/enrollments`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+student_id | Integer | Identifier of the Student object (route dependence)
+course_class_id | Integer | Identifier of the CourseClass object (route dependence)
+school_product_id | Integer | Identifier of the SchoolProduct object (route dependence)
+
+## <img src="/images/post.png"> Criar matrículas
+
+Create an enrollment
+
+### HTTP Request
+
+`POST /enrollments`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+enrollment | Hash | The enrollment to create
+enrollment[registration_id] | Integer | The identifier of the Registration object
+enrollment[school_product_id] | Integer | The identifier of the SchoolProduct object
+enrollment[max_attendance_type] | Integer | Enrollment type, can be indeterminate, time or attempts
+
+Para criar um array de matrículas:
+
+`POST /enrollments/batch`
+
+## <img src="/images/put.png"> Atualizar matrículas
+
+Create an enrollment
+
+### HTTP Request
+
+`PUT /enrollments/:id or /enrollments/:code?find_by=code`
+
+```ruby
+EXEMPLO DE CHAMADA UTILIZANDO RUBY
+```
+
+```python
+EXEMPLO DE CHAMADA UTILIZADO PHYTON
+```
+
+```javascript
+EXEMPLO DE CHAMADA UTILIZANDO JS
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  EXEMPLO DE JSON
+]
+```
+
+### Parâmetros obrigatórios
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+enrollment | Hash | The enrollment to create
+enrollment[registration_id] | Integer | The identifier of the Registration object
+enrollment[school_product_id] | Integer | The identifier of the SchoolProduct object
+enrollment[max_attendance_type] | Integer | Enrollment type, can be indeterminate, time or attempts
+
+### Parâmetros opcionais
+
+Nome | Tipo | Descrição
+--------- | ------- | -----------
+enrollment[max_attendance_length] | Integer | Attendance length. Required if enrollment[max_attendance_type] is time or attempts
+enrollment[status] |  String | Enrollment status, can be pending, active, expired, deactivated or canceled
+enrollment[available_until] | DateTime | Date of enrollment's expiration. Required if enrollment[unlimited] is false
+enrollment[created_at] |  DateTime | Date of enrollment's creation.
+enrollment[activated_at] |  DateTime | Date of enrollment's activation.
+enrollment[unlimited] | Boolean | Says if the enrollment is unlimited [true, false]
+enrollment[code] |  String | Representation code of enrollment (uniq)
+enrollment[time_spent] |  Integer | This param will be permitted by using an App's credential
+enrollment[course_class_ids] |  Array<Integer> |An array of course classes ids to associate to the enrollment

@@ -1,0 +1,5 @@
+# Cases de uso
+Fique à vontade para conferir os <b><a href="http://plataforma.edools.com/desenvolvedores" target="_blank" style="text-decoration: none">cases de uso</a></b> da <i>API Edools</i>.
+
+<br>
+Se já utilizou nossa API e alcançou algum resultado bacana com ela manda uma <b><a href="https://suporte.edools.com/hc/pt-br/requests/new" target="_blank" style="text-decoration: none">mensagem</a></b> para a gente e vamos bater um papo sobre isso  <img width="32px" " src="images/rocket.png">
