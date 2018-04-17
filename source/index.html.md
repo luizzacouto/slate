@@ -24,7 +24,7 @@ search: true
 
 # Primeiros passos
 
-## O que dá para fazer com a API?
+## Mas o que dá para fazer com a API?
 
 Com a nossa API você será capaz de integrar qualquer sistema externo ao Edools, realizar migrações de dados de plataformas antigas de maneira simples e direta, e construir aplicativos para estender uma funcionalidade existente ou até mesmo criar novas funcionalidades com sua lógica própria.
 
